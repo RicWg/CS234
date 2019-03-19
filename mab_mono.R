@@ -1,5 +1,5 @@
 # CS234 RL 2019
-# Multi-armed bandit(MAB) Baseline: random action
+# Multi-armed bandit(MAB) policy: monotonic increase of difficulty
 # Policy: 
 #    if reward is positive, with posibility > epsilon, go on exploitation
 #    all else, stay in close to verify as exploration
