@@ -107,4 +107,4 @@ p = ggplot() +
 print(p)
 
 # output to csv for pyplot
-write.csv(dtm_reward, 'mab_random.csv')
+write.csv(dtm_reward, 'mab_mono.csv')
