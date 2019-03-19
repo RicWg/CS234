@@ -1,5 +1,5 @@
 # CS234 RL 2019
-# Multi-armed bandit(MAB) polic: multistage
+# Multi-armed bandit(MAB) policy: multistage
 # Policy: 
 #    repeat monotonic policy for cycles
 
