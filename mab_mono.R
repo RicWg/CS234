@@ -45,7 +45,6 @@ for (j in 1:dim(dt)[1]) {
       p = seq_pos[i]
       
       # exploitation/exploration by reward
-      # if item not valid for policy, skip episode
       ran = runif(1,0,1)
       if (rew > 0){
         if (ran > epsilon) {
