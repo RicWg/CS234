@@ -1,4 +1,5 @@
--- Data extraction for MIRT model and RL 
+-- CS234 RL 2019
+-- Data extraction for MIRT model and MAB
 -- Total >2300 tests, >1000 items extracted 
 -- Output CSV format: CALL, RESPONSE, ITEM, SCORE_VALUE
 
