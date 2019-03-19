@@ -124,8 +124,6 @@ plt.grid()
 plt.savefig('mab_easytohard_reg.png')
 #plt.show()
 
-# baseline
-
 '''
 dt = pd.read_csv("~/cs234_RL_Stanford/test_score_accumulated.csv",
                  index_col=None)
