@@ -15,7 +15,7 @@ library(data.table)
 
 # Read csv
 setwd("~/cs234_RL_Stanford/")
-testdata <- read.csv(file="./rl_testdata.csv", header=TRUE, sep=",")
+testdata <- read.csv(file="./rl_testdata_pivot.csv", header=TRUE, sep=",")
 
 # Clean data and pre-processing
 dt = within(testdata, rm('CALL'))
@@ -23,7 +23,8 @@ dt = dt[rowSums(is.na(dt)) != ncol(dt),]
 dt[dt>0] = 1
 dt[dt<0] = 0
 
-# Reselect valid items (after IRT model screening)
+# Reselect valid items 
+# After first round IRT model screening, we need run it again with good items
 dt = subset( dt, select = -c(c_100114,c_100157,c_100172,c_100174,c_1002100,c_1002131,c_1002182,c_1002187,c_1002249,c_1002298,c_1002313,c_1002341,c_100250,c_10028,c_100298,c_1003104,c_100344,c_100349,c_100379,c_100398,c_100399,c_100489) )
 write.csv(dt,"testdata_dictomous.csv")
 
