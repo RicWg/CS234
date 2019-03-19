@@ -9,7 +9,6 @@ dt.columns = ["call", "response", "grp", "ansitem", "time", "mscore"]
 dt['item'] = 'c_' + dt['grp'].astype(str) + dt['ansitem'].astype(str)
 
 dtpv = pd.pivot_table(dt, index = ["call"], columns=["item"],values=[ "mscore"])
-
 dtpv.columns = dtpv.columns.levels[1].values
 dtpv.to_csv('rl_testdata_pivot.csv', header=True, index=True)
 
