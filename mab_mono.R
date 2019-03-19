@@ -76,10 +76,9 @@ for (j in 1:dim(dt)[1]) {
 }
 #print(p_ability)
 
+# check mean
 dtm = matrix(p_ability[,'items_score'], nrow=25)
 dtm_mean = melt(data.frame(rowSums(dtm))/n)
-
-# check mean
 p = ggplot() + 
   geom_line(data=melt(dtm), aes(x = Var1, y = value, group = Var2)) +
   xlab('Items') + ylab('Ability') +
