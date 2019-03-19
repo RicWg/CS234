@@ -48,12 +48,15 @@ for (j in 1:dim(dt)[1]) {
         #sc = array(c(NA), dim = dim(idx)[2])
         p = seq_pos[i]
 
-        #
+        # check current item valid or not according to probability 
+        if(round(item_diff[respsc$item]+3) != which.max(prior))
+          next
+      
         if (rew > 0){
-          prior[item_diff[respsc$item]+3] += pstep
+          prior[round(item_diff[respsc$item]+3)] += pstep
         }
         else {
-          prior[item_diff[respsc$item]+3] -= pstep
+          prior[round(item_diff[respsc$item]+3)] -= pstep
         }
 
         # reset sc[i - window_size] to NA, only use scores in window to calculate
