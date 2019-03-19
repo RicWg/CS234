@@ -127,7 +127,7 @@ plt.savefig('mab_easytohard_reg.png')
 # baseline
 
 '''
-dt = pd.read_csv("//Richard/cs234_RL_Stanford/project/code/pron_score_accumulated.csv",
+dt = pd.read_csv("~/cs234_RL_Stanford/test_score_accumulated.csv",
                  index_col=None)
 
 dt_mean = np.array(dt['items_score'])[0:2500].reshape(25, 100, order='F')
@@ -140,9 +140,8 @@ plt.title("Regret vs items", loc='center', fontsize=12, fontweight=0, color='bla
 plt.xlabel("Items")
 plt.ylabel("Ability")
 plt.grid()
-#plt.savefig('../ability_items.png')
+plt.savefig('ability_items.png')
 #plt.show()
-
 '''
 
 # Comparison of all policies
