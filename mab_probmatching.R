@@ -24,7 +24,10 @@ window_size = 8
 num_episod = 1000
 rew = 0.0
 epislon = 0.2
-num_cycle = 3
+prior05 = list(0.1, 0.3, 0.2, 0.2, 0.1, 0.1)
+#prior02 = list(0.1, 0.2, 0.3, 0.2, 0.1, 0.1)
+pstep = 0.03
+
 
 for (j in 1:dim(dt)[1]) {
 #for (j in 1:300) {
@@ -40,21 +43,17 @@ for (j in 1:dim(dt)[1]) {
     sc = array(c(NA), dim = dim(dt)[2])    
     seq_pos = order(-item_diff[colnames(callsc[pos]),])
     seq_pos = pos[seq_pos]
-    for (c in r:num_cycle) {
-      for (i in 1:length(pos)/num_cycle) {
-        i = num_cycle*(length(pos)/num_cycle) + i
+    
+    for (i in 1:length(pos)) {
         #sc = array(c(NA), dim = dim(idx)[2])
         p = seq_pos[i]
 
-        # exploitation/exploration by reward
-        ran = runif(1,0,1)
+        #
         if (rew > 0){
-          if (ran > epsilon) {
-              sc[p] = callsc[p+1]
-            }
+          prior[item_diff[respsc$item]+3] += pstep
         }
         else {
-          sc[p] = callsc[p]
+          prior[item_diff[respsc$item]+3] -= pstep
         }
 
         # reset sc[i - window_size] to NA, only use scores in window to calculate
