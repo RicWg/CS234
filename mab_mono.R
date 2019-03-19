@@ -1,5 +1,8 @@
 # CS234 RL 2019
 # Multi-armed bandit(MAB) Baseline: random action
+# Policy: 
+#    if reward is positive, with posibility > epsilon, go on exploitation
+#    all else, stay in close to verify as exploration
 
 mypackages = c("mirt", "rlist", "gtools")   
 tmp = setdiff(mypackages, rownames(installed.packages()))  
@@ -43,8 +46,15 @@ for (j in 1:dim(dt)[1]) {
       
       # exploitation/exploration by reward
       # if item not valid for policy, skip episode
+      ran = runif(1,0,1)
       if (rew > 0){
-      sc[p] = callsc[p]
+        if (ran > epsilon) {
+            sc[p] = callsc[p+1]
+          }
+      }
+      else {
+        sc[p] = callsc[p]
+      }
       
       # reset sc[i - window_size] to NA, only use scores in window to calculate
       if (i > window_size) {
