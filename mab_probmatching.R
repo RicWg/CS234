@@ -112,4 +112,4 @@ p = ggplot() +
 print(p)
 
 # output to csv for pyplot
-write.csv(dtm_reward, 'mab_multistage.csv')
+write.csv(dtm_reward, 'mab_probmatching.csv')
